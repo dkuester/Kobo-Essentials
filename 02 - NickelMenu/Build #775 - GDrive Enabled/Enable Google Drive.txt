@@ -1,0 +1,45 @@
+https://github.com/pgaskin/NickelMenu/issues/143#issuecomment-2563299861
+Get Build# 775
+
+Now we will configure the Google Drive menu item. Connect your Kobo device via USB to the computer again and go find it on your computer folder list of drives. Then open the file (using notepad++) located at: E:.kobo\Kobo\Kobo eReader.conf
+
+We need to modify some lines as follows:
+
+Find:
+googledrive_link_account_start=
+
+and replace with :
+googledrive_link_account_start=https://authorize.kobo.com/{region}/{language}/linkcloudstorage/provider/google_drive
+
+Scroll down a few lines and find
+kobo_googledrive_link_account_enabled=False
+
+and change to
+kobo_googledrive_link_account_enabled=True
+
+Save that file
+
+Now navigate back up to the Kobo eReader root directory folder again - there should be a new folder called ".adds" - click into that and then into "nm" and you'll see a file called "doc" - this is a help file, read it if you're curious and want to see all the possible commands to use.
+
+In this nm folder, we need to make a new TXT file to hold the menu items for our new NickelMenu. You can call it what you like, for example "command.TXT" - the extension doesn't matter. I made my new file as a TXT document, using Notepad ++ and in this new file, add these lines:
+
+# Add a comment in the file, like this using the hash at the front
+# Menu items for the NickelMenu
+# Created on [add your date]
+# help article here: https://github.com/pgaskin/NickelMenu/issues/143#issuecomment-2563299861
+
+menu_item :main    :Google Drive  :nickel_open   :library   :gdrive
+
+# A few extra quick access commands - you can take these or leave these as you wish
+menu_item :main     :Sleep              :power :sleep
+menu_item :main     :Shutdown           :power :shutdown
+menu_item :main     :Reboot             :power :reboot
+
+
+These will all appear in the NickelMenu (You can see more example commands in the "doc" help file.)
+
+Save the new "command.txt" file in the nm folder and then disconnect the Kobo device from your computer and disconnect the USB cable, and you should now see the new menu items under the NickelMenu. If you like you can reboot the device using your new NickelMenu option :-)
+
+Open up the Google Drive item and wait a moment for it to connect (you need to be connected to wifi). You should then be presented with a screen from Google Drive with "get started" - simply follow the instructions to complete the login connection (you will also need to use your computer or phone to complete the pairing using the presented code to confirm authorisation).
+
+Once you complete this part, Google Drive folder should now appear on your Kobo device as a folder. You can then add eBooks epubs and pdfs - what you like - to you Google Drive folder (e.g. using your phone or computer) and then easily access them, read and save them on your Kobo device!
