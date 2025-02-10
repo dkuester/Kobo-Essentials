@@ -1,3 +1,0 @@
-Go to Action/Work Flow to get Build #775
-
-https://github.com/pgaskin/NickelMenu/actions/workflows/build.yaml
